@@ -1,0 +1,27 @@
+{
+  "name": "claudio-i-love-you-parte-3",
+  "version": "1.0.0",
+  "description": "Sistema de Vendas com Comissões, Metas e Performance - API REST em Node.js com MySQL",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node test/test-runner.js",
+    "seed": "node src/seed.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql2",
+    "api-rest",
+    "comissoes",
+    "vendas"
+  ],
+  "author": "Thiago",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
+  }
+}

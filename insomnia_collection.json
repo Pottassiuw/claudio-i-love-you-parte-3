@@ -1,0 +1,146 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-26T03:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_vendas",
+      "_type": "workspace",
+      "parentId": null,
+      "name": "Sistema de Vendas - Cláudio Parte 3",
+      "description": "Coleção de testes para a API REST de Vendas, Comissões e Performance",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_vendas",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      }
+    },
+    {
+      "_id": "fld_vendedores",
+      "_type": "request_group",
+      "parentId": "wrk_vendas",
+      "name": "1. Vendedores"
+    },
+    {
+      "_id": "req_cadastrar_vendedor",
+      "_type": "request",
+      "parentId": "fld_vendedores",
+      "name": "POST /vendedores - Cadastrar Vendedor",
+      "url": "{{ _.base_url }}/vendedores",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Carlos Silva\",\n  \"meta_mensal\": 50000.00,\n  \"percentual_base\": 5.00\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_listar_vendedores",
+      "_type": "request",
+      "parentId": "fld_vendedores",
+      "name": "GET /vendedores - Listar Vendedores",
+      "url": "{{ _.base_url }}/vendedores",
+      "method": "GET"
+    },
+    {
+      "_id": "req_consultar_vendedor",
+      "_type": "request",
+      "parentId": "fld_vendedores",
+      "name": "GET /vendedores/:id - Consultar Vendedor",
+      "url": "{{ _.base_url }}/vendedores/1",
+      "method": "GET"
+    },
+    {
+      "_id": "req_atualizar_vendedor",
+      "_type": "request",
+      "parentId": "fld_vendedores",
+      "name": "PUT /vendedores/:id - Atualizar Vendedor",
+      "url": "{{ _.base_url }}/vendedores/1",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"meta_mensal\": 55000.00,\n  \"percentual_base\": 5.50\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_desativar_vendedor",
+      "_type": "request",
+      "parentId": "fld_vendedores",
+      "name": "PATCH /vendedores/:id/desativar - Desativar Vendedor",
+      "url": "{{ _.base_url }}/vendedores/1/desativar",
+      "method": "PATCH"
+    },
+    {
+      "_id": "fld_vendas",
+      "_type": "request_group",
+      "parentId": "wrk_vendas",
+      "name": "2. Vendas"
+    },
+    {
+      "_id": "req_registrar_venda",
+      "_type": "request",
+      "parentId": "fld_vendas",
+      "name": "POST /vendas - Registrar Venda (Exemplo Doc)",
+      "url": "{{ _.base_url }}/vendas",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"id_vendedor\": 1,\n  \"id_regiao\": 1,\n  \"data_venda\": \"2026-10-25 10:00:00\",\n  \"valor_venda\": 2000.00,\n  \"tipo_cliente\": \"PJ\"\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_listar_vendas",
+      "_type": "request",
+      "parentId": "fld_vendas",
+      "name": "GET /vendas - Listar Vendas",
+      "url": "{{ _.base_url }}/vendas",
+      "method": "GET"
+    },
+    {
+      "_id": "req_vendas_por_vendedor",
+      "_type": "request",
+      "parentId": "fld_vendas",
+      "name": "GET /vendas/vendedor/:id - Vendas por Vendedor",
+      "url": "{{ _.base_url }}/vendas/vendedor/1",
+      "method": "GET"
+    },
+    {
+      "_id": "req_vendas_por_regiao",
+      "_type": "request",
+      "parentId": "fld_vendas",
+      "name": "GET /vendas/regiao/:id - Vendas por Região",
+      "url": "{{ _.base_url }}/vendas/regiao/3",
+      "method": "GET"
+    },
+    {
+      "_id": "req_excluir_venda",
+      "_type": "request",
+      "parentId": "fld_vendas",
+      "name": "DELETE /vendas/:id - Excluir Venda",
+      "url": "{{ _.base_url }}/vendas/1",
+      "method": "DELETE"
+    },
+    {
+      "_id": "fld_relatorios",
+      "_type": "request_group",
+      "parentId": "wrk_vendas",
+      "name": "3. Relatórios"
+    },
+    {
+      "_id": "req_relatorio_performance",
+      "_type": "request",
+      "parentId": "fld_relatorios",
+      "name": "GET /relatorios/performance - Relatório Gerencial",
+      "url": "{{ _.base_url }}/relatorios/performance?inicio=2026-10-01&fim=2026-10-31",
+      "method": "GET"
+    }
+  ]
+}
